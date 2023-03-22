@@ -1,3 +1,27 @@
+$(function () {
+    "use strict";
+    let loadMessage = $('#page-load').toggleClass('hidden')
+    let addRating = document.getElementById("rate-movie")
+    let addTitle = document.getElementById('submit-title');
+    let submitButton = document.querySelector('#movie-choice');
+    let filterMovie = document.querySelector("#movielist");
+// Call Function getList to display movie list
+    getList();
+
+    fetch('https://longing-flossy-bed.glitch.me/movies')
+        .then( response => response.json() ).then(movies => {
+        movies.forEach(movie => {
+            console.log(movie);
+        })})
+
+
+
+})
+
+ /* review was created successfully */
+
+//Notes --
+
 // $.get('https://longing-flossy-bed.glitch.me/');
 // const reviewObj = {
 //     restaurant_id: 1,
@@ -12,10 +36,3 @@
 //     },
 //     body: JSON.stringify(reviewObj),
 // };
-fetch('https://longing-flossy-bed.glitch.me/movies')
-    .then( response => response.json() ).then(movies => {
-        movies.forEach(movie => {
-            console.log(movie);
-        })})
-
- /* review was created successfully */
