@@ -11,19 +11,98 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="movie_project.css">
 </head>
-<body>
-<div class="d-flex justify content-center" id="logo">
-    <img id="titleHeader" src="img/movie.picture.png" alt="Logo">
-    <div id="loadingAlert">
-    </div>
+<body class="bg-warning">
+
+
+<!-- Page loading alert -->
+
+<div class="w-100" id="page-loading" >
+    <img class="w-100" src="https://images.pexels.com/photos/8110768/pexels-photo-8110768.jpeg?auto=compress&cs=tinysrgb&w=800">
 </div>
+<div class="row" id="movie-cards"></div>
+<!-- Non-functional navbar with logo and "Company Name" -->
 
+<nav class="navbar bg-warning-subtle bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand text-warning-emphasis fs-2 fw-bold" href="#">
+            <img src="https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=800" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            R & R Movies
+        </a>
+    </div>
+</nav>
 
+<main>
+    <!-- Forms to edit, add, and delete movies -->
 
+    <div class="input-group m-3">
+        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+        <div class="btn-group dropend">
+            <button type="submit" class="btn btn-secondary">
+                Submit
+            </button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropend</span>
+            </button>
+            <ul class="dropdown-menu">
 
+                <!-- Dropdown menu links -->
+            </ul>
+        </div>
+    </div>
 
+    <!-- Form to select ratiing -->
 
+<!--    <div class="input-group m-3">-->
+<!--        <select class="form-select" id="rate-movie">-->
+<!--            <option selected>Choose...</option>-->
+<!--            <option value="1">One</option>-->
+<!--            <option value="2">Two</option>-->
+<!--            <option value="3">Three</option>-->
+<!--        </select>-->
+<!--        <label class="input-group-text" for="rate-movie">Rating</label>-->
+<!--    </div>-->
 
+<!--    &lt;!&ndash; Movie Cards &ndash;&gt;-->
+
+<!--    <div class="row row-cols-1 row-cols-md-3 g-4 m-3">-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100">-->
+<!--                <img src="..." class="card-img-top" alt="...">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Card title</h5>-->
+<!--                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100">-->
+<!--                <img src="..." class="card-img-top" alt="...">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Card title</h5>-->
+<!--                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100">-->
+<!--                <img src="..." class="card-img-top" alt="...">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Card title</h5>-->
+<!--                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100">-->
+<!--                <img src="..." class="card-img-top" alt="...">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Card title</h5>-->
+<!--                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</main>
 
 <!-- JQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
