@@ -12,34 +12,38 @@
     <link rel="stylesheet" href="movie_project.css">
 </head>
 <body class="bg-warning">
-
-
-<!-- Page loading alert -->
-
-<div class="w-100" id="page-loading" >
-    <img class="w-100" src="https://images.pexels.com/photos/8110768/pexels-photo-8110768.jpeg?auto=compress&cs=tinysrgb&w=800">
-</div>
-<div class="row" id="movie-cards"></div>
 <!-- Non-functional navbar with logo and "Company Name" -->
 
 <nav class="navbar bg-warning-subtle bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand text-warning-emphasis fs-2 fw-bold" href="#">
-            <img src="https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=800" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <img class="top-50" src="https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=800" alt="Logo" width="75" height="75" class="d-inline-block align-text-top">
             R & R Movies
         </a>
     </div>
 </nav>
-
 <main>
-    <!-- Forms to edit, add, and delete movies -->
+    <!-- Page loading alert -->
 
+    <div class="w-100" id="page-loading" >
+        <img class="w-100" src="https://images.pexels.com/photos/8110768/pexels-photo-8110768.jpeg?auto=compress&cs=tinysrgb&w=800">
+    </div>
     <div class="input-group m-3">
-        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+        <input type="text" id="newMovie" class="form-control" placeholder="Please enter title of movie you want to add">
+        <input type="text" id="newMovieRate" class="form-control" placeholder="Please enter your rating of this movie">
+        <button type="submit" id="newMovieBtn" class="btn btn-secondary">
+            Submit
+        </button>
+    </div>
+    <div class="row" id="movie-cards"></div>
+</main>
+
+<!--<main>-->
+<!--    &lt;!&ndash; Forms to edit, add, and delete movies &ndash;&gt;-->
+
+
         <div class="btn-group dropend">
-            <button type="submit" class="btn btn-secondary">
-                Submit
-            </button>
+
             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="visually-hidden">Toggle Dropend</span>
             </button>
@@ -102,7 +106,7 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-</main>
+<!--</main>-->
 
 <!-- JQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>

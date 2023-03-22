@@ -1,15 +1,13 @@
-
-( () => {
+(() => {
     "use strict";
 
     let loadMessage = $('#page-loading').toggleClass('hidden');
-    let addRating = document.getElementById('add-rate');
-    let addTitle = document.getElementById('add-title');
     let submitBtn = document.querySelector('#movie-choice');
+    let submitNewMovie = document.querySelector('#newMovieBtn');
     let filterMovie = document.querySelector('#movie-cards');
-
-// Page loading img/message
     pageLoaded();
+    console.log(submitNewMovie);
+
 
     //DOM manip
 
@@ -29,7 +27,7 @@
                     html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
                     html += `</div>`
                 }
-                pageLoaded.innerHTML = html;
+                movies.innerHTML = html;
 
                 //delete btn
                 $('#delete-Movies').click(function () {
@@ -77,21 +75,28 @@
 
         //adding movies
 
-        function addMovies(addFilm) {
-            addFilm.preventDefault();
+        function addMovies(title, rating) {
+            // addFilm.preventDefault();
             let filmObject = {
-                name: addTitle.value,
-                rate: addRating.value
+                name: title,
+                rate: rating
             };
             fetch('https://longing-flossy-bed.glitch.me/movies', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(filmObject)})
+                body: JSON.stringify(filmObject)
+            })
                 .then(() => fetch('https://longing-flossy-bed.glitch.me/movies'))
                 .then(res => res.json())
                 .then(() => pageLoaded());
-            addTitle.value = '';
+            // addTitle.value = '';
         }
+
+        submitNewMovie.addEventListener('click', function () {
+            let addRating = document.querySelector('#newMovieRate').value;
+            let addTitle = document.querySelector('#newMovie').value;
+            addMovies(addTitle, addRating);
+        });
 
         //deleting movies
 
@@ -114,17 +119,16 @@
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(changedFilm)
-                })
+            })
                 .then(() => fetch('https://longing-flossy-bed.glitch.me/movies'))
                 .then(res => res.json())
                 .then(() => pageLoaded());
         }
-       submitBtn.addEventListener('click', addMovies);
 
         //change ratings
         function changeRating(rate) {
             let html = '';
-            if(rate === 1){
+            if (rate === 1) {
                 html += `<select id="selector" class="changeRate">
                     <option selected value="1">1</option>
                     <option value="2">2</option>
@@ -175,31 +179,25 @@
 })();
 
 
+// window.onload = function () {
+//     alert('Please be patient while page is loading');
+// }
+// fetch('https://longing-flossy-bed.glitch.me/movies')
+//     .then(response => response.json()).then(movies => {
+//     movies.forEach(movie => {
+//         console.log(movie);
 
 
+// let listmovies = document.getElementById('listmovies');
+// fetch("https://longing-flossy-bed.glitch.me/movies").then(resp => resp.json())
+//     .then(data => {
+//         let html = '';
+//         for (var i = 0; i < data.length; i++)
 
 
-        // window.onload = function () {
-        //     alert('Please be patient while page is loading');
-        // }
-        // fetch('https://longing-flossy-bed.glitch.me/movies')
-        //     .then(response => response.json()).then(movies => {
-        //     movies.forEach(movie => {
-        //         console.log(movie);
-
-
-
-
-        // let listmovies = document.getElementById('listmovies');
-        // fetch("https://longing-flossy-bed.glitch.me/movies").then(resp => resp.json())
-        //     .then(data => {
-        //         let html = '';
-        //         for (var i = 0; i < data.length; i++)
-
-
-        // var loadingSign = document.getElementsByTagName('body')
-        // alert('Please be patient while the page loads...');
-        // console.log(loadingSign)
+// var loadingSign = document.getElementsByTagName('body')
+// alert('Please be patient while the page loads...');
+// console.log(loadingSign)
 
 
 
