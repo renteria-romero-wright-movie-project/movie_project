@@ -8,20 +8,49 @@
     pageLoaded();
     console.log(submitNewMovie);
 
+    // function to add new movies
+    function addMovies(name, rating, type) {
+        // addFilm.preventDefault();
+        let filmObject = {
+            title: name,
+            rate: rating,
+            genre: type
+        };
+        fetch('https://longing-flossy-bed.glitch.me/movies', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(filmObject)
+        })
+            .then(() => fetch('https://longing-flossy-bed.glitch.me/movies'))
+            .then(res => res.json())
+            .then(() => pageLoaded());
+        // addTitle.value = '';
+    }
+
+    submitNewMovie.addEventListener('click', function () {
+        let addRating = document.querySelector('#newMovieRate').value;
+        let addTitle = document.querySelector('#newMovie').value;
+        let addGenre = document.querySelector('#newMovieGenre').value;
+        addMovies(addTitle, addRating, addGenre);
+    });
 
     //DOM manip
 
     function pageLoaded() {
-        $('#page-loading').toggleClass('hidden')
+        $(document).ready(function(){
+            $('#page-loading').show();
+        });
         let movies = document.getElementById('movie-cards');
         fetch('https://longing-flossy-bed.glitch.me/movies')
             .then(response => response.json())
             .then(movie => {
                 let html = '';
+
                 for (let i = 0; i < movie.length; i++) {
                     html += `<div>`
                     html += `<h2>${movie[i].title}</h2>`
-                    html += `<h6>'Rating: ' + $[movie[i].rating}</h6>`
+                    html += `<h6>Rating: ${movie[i].rate} stars</h6>`
+                    html += `<h6>Genre: ${movie[i].genre}</h6>`
                     html += `<button name="Save" id="save-Movies" type="submit" value="${movie[i].id}">Save</button>`
                     html += `<button name="Edit" id="edit-Movies" type="submit" value="${movie[i].id}">Edit</button>`
                     html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
@@ -71,32 +100,6 @@
                 })
             })
 
-        // may need to hide loading image
-
-        //adding movies
-
-        function addMovies(title, rating) {
-            // addFilm.preventDefault();
-            let filmObject = {
-                name: title,
-                rate: rating
-            };
-            fetch('https://longing-flossy-bed.glitch.me/movies', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(filmObject)
-            })
-                .then(() => fetch('https://longing-flossy-bed.glitch.me/movies'))
-                .then(res => res.json())
-                .then(() => pageLoaded());
-            // addTitle.value = '';
-        }
-
-        submitNewMovie.addEventListener('click', function () {
-            let addRating = document.querySelector('#newMovieRate').value;
-            let addTitle = document.querySelector('#newMovie').value;
-            addMovies(addTitle, addRating);
-        });
 
         //deleting movies
 
@@ -107,7 +110,7 @@
                 .then(res => res.json())
                 .then(() => pageLoaded());
         }
-
+            deleteMovies();
         //editing movies
 
         function changeMovies(chngFilm, title, rating) {
