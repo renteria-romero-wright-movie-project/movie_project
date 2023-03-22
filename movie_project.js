@@ -1,15 +1,30 @@
 $(function () {
     "use strict";
-    let loadMessage = $('#page-load').toggleClass('hidden')
-    let addRating = document.getElementById("rate-movie")
-    let addTitle = document.getElementById('submit-title');
-    let submitButton = document.querySelector('#movie-choice');
-    let filterMovie = document.querySelector("#movielist");
-// Call Function getList to display movie list
-    getList();
 
-    fetch('https://longing-flossy-bed.glitch.me/movies')
-        .then( response => response.json() ).then(movies => {
+    let loadMessage = $('#page-loading').toggleClass('hidden');
+    let addRating = document.getElementById('add-rate');
+    let addTitle = document.getElementById('add-title');
+    let submitBtn = document.querySelector('#movie-choice');
+    let filterMovie = document.querySelector('#movie-cards');
+
+// Page loading img/message
+    pageLoaded();
+
+    //DOM manip
+
+    function pageLoaded() {
+        $('#page-loading').toggleClass('hidden')
+        let movies = document.getElementById('movie-cards');
+        fetch('https://longing-flossy-bed.glitch.me/movies')
+            .then( response => response.json() )
+            .then(data => {
+                let html = '';
+                for(i = 0; i < data.length, i++){
+                    html += `<div>`
+                    html += `<h2>${data[i].title}</h2>`
+                    html += `<h6>'Rating: ' + $[data[i].rating}</h6>`
+                }
+            }
         movies.forEach(movie => {
             console.log(movie);
         })})
