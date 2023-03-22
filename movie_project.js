@@ -57,12 +57,6 @@
                     html += `</div>`
                 }
                 movies.innerHTML = html;
-
-                //delete btn
-                $('#delete-Movies').click(function () {
-                    deleteMovie($(this).val());
-                })
-
                 // edit btn - may need extra toggle class line-43
                 $('#edit-Movies').click(function () {
                     let editPic = ($(this).val());
@@ -99,18 +93,20 @@
                     });
                 })
             })
+        $('#delete-Movies').on(click,deleteMovies())
 
 
         //deleting movies
 
-        function deleteMovies(cutFilm) {
-            fetch('https://longing-flossy-bed.glitch.me/movies' + cutFilm, {
+        function deleteMovies() {
+            fetch('https://longing-flossy-bed.glitch.me/movies/260', {
                 method: 'DELETE'
             }).then(() => fetch('https://longing-flossy-bed.glitch.me/movies'))
                 .then(res => res.json())
                 .then(() => pageLoaded());
         }
             deleteMovies();
+
         //editing movies
 
         function changeMovies(chngFilm, title, rating) {
