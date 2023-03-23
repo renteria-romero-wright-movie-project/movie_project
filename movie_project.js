@@ -1,6 +1,6 @@
 (() => {
     "use strict";
-    let loadMessage = $('#page-loading').toggleClass('hidden');
+    // let loadMessage = $('#page-loading').toggleClass('hidden');
     let submitBtn = document.querySelector('#movie-choice');
     let submitNewMovie = document.querySelector('#newMovieBtn');
     let filterMovie = document.querySelector('#movie-cards');
@@ -35,30 +35,50 @@
         addMovies(addTitle, addRating, addGenre);
     });
 
-    //DOM manip
+    //loading image
 
         function pageLoaded() {
             $(document).ready(function () {
-            $('#page-loading').show();
+                let movies = document.getElementById('movie-cards');
+                fetch('https://longing-flossy-bed.glitch.me/movies')
+                    .then(response => response.json())
+                    .then(movie => {
+                        let html = '';
+
+                        for (let i = 0; i < movie.length; i++) {
+                            html += `<div>`
+                            html += `<h2>${movie[i].title}</h2>`
+                            html += `<h6>Rating: ${movie[i].rate} stars</h6>`
+                            html += `<h6>Genre: ${movie[i].genre}</h6>`
+                            html += `<button name="Save" id="save-Movies" type="submit" value="${movie[i].id}">Save</button>`
+                            html += `<button name="Edit" id="edit-Movies" type="submit" value="${movie[i].id}">Edit</button>`
+                            html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
+                            html += `</div>`
+                        }
+                        // $('#page-loading').toggle("hidden");
+                        movies.innerHTML = html;
+            $('#page-loading').toggle("hidden");
+
     });
 
-    let movies = document.getElementById('movie-cards');
-    fetch('https://longing-flossy-bed.glitch.me/movies')
-        .then(response => response.json())
-        .then(movie => {
-            let html = '';
-
-            for (let i = 0; i < movie.length; i++) {
-                html += `<div>`
-                html += `<h2>${movie[i].title}</h2>`
-                html += `<h6>Rating: ${movie[i].rate} stars</h6>`
-                html += `<h6>Genre: ${movie[i].genre}</h6>`
-                html += `<button name="Save" id="save-Movies" type="submit" value="${movie[i].id}">Save</button>`
-                html += `<button name="Edit" id="edit-Movies" type="submit" value="${movie[i].id}">Edit</button>`
-                html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
-                html += `</div>`
-            }
-            movies.innerHTML = html;
+    // let movies = document.getElementById('movie-cards');
+    // fetch('https://longing-flossy-bed.glitch.me/movies')
+    //     .then(response => response.json())
+    //     .then(movie => {
+    //         let html = '';
+    //
+    //         for (let i = 0; i < movie.length; i++) {
+    //             html += `<div>`
+    //             html += `<h2>${movie[i].title}</h2>`
+    //             html += `<h6>Rating: ${movie[i].rate} stars</h6>`
+    //             html += `<h6>Genre: ${movie[i].genre}</h6>`
+    //             html += `<button name="Save" id="save-Movies" type="submit" value="${movie[i].id}">Save</button>`
+    //             html += `<button name="Edit" id="edit-Movies" type="submit" value="${movie[i].id}">Edit</button>`
+    //             html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
+    //             html += `</div>`
+    //         }
+    //         // $('#page-loading').toggle("hidden");
+    //         movies.innerHTML = html;
 
 
             $('#edit-Movies').click(function () {
@@ -102,7 +122,7 @@
     //deleting movies
 
     function deleteMovies() {
-        fetch('https://longing-flossy-bed.glitch.me/movies/260', {
+        fetch('https://longing-flossy-bed.glitch.me/movies/', {
             method: 'DELETE'
         }).then(() => fetch('https://longing-flossy-bed.glitch.me/movies'))
             .then(res => res.json())
