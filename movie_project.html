@@ -13,8 +13,7 @@
 </head>
 <body class="bg-warning">
 
-<!-- Non-functional navbar with logo and "Company Name" -->
-
+<!-- Non-functional navbar with pic and "Company Name" -->
 <nav class="navbar bg-warning-subtle bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand text-warning-emphasis fs-2 fw-bold" href="#">
@@ -24,19 +23,28 @@
     </div>
 </nav>
 <main>
-    <!-- Page loading message -->
 
+    <!-- Page loading message -->
     <div class="w-100" id="page-loading">
         <img class="w-100" src="https://images.pexels.com/photos/8110768/pexels-photo-8110768.jpeg?auto=compress&cs=tinysrgb&w=800">
     </div>
 
     <!-- Form to add new movies -->
-
     <div class="input-group m-3">
-        <input type="text" id="newMovie" class="form-control" placeholder="Please enter title of movie you want to add">
-        <input type="text" id="newMovieRate" class="form-control" placeholder="Please enter your rating of this movie">
-        <input type="text" id="newMovieGenre" class="form-control" placeholder="Please enter genre (comedy,romance,drama)">
+        <label for="newMovie" class="text-warning-emphasis fs-2 fw-bold text-decoration-underline p-2">Add a movie:</label>
+        <input type="text" id="newMovie" class="form-control" placeholder="Enter title of movie">
+        <input type="text" id="newMovieRate" class="form-control" placeholder="Enter your rating">
+        <input type="text" id="newMovieGenre" class="form-control" placeholder="Enter genre (comedy,romance,drama)">
         <button type="submit" id="newMovieBtn" class="btn btn-secondary">
+            Submit
+        </button>
+    </div>
+
+    <!-- Form to search for movies -->
+    <div class="input-group m-3">
+        <label for="searchInput" class="text-warning-emphasis fs-2 fw-bold text-decoration-underline p-2">Search for movie:</label>
+        <input type="text" id="searchInput" class="form-control" placeholder="Enter movie title">
+        <button type="submit" id="searchBtn" class="btn btn-secondary">
             Submit
         </button>
     </div>
@@ -52,7 +60,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 <!-- Custom JS -->
-
 <script src="movie_project.js"></script>
 </body>
 </html>
