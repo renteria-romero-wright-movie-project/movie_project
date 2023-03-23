@@ -26,7 +26,7 @@
                 let movies = document.getElementById('movie-cards');
                 let html = '';
 
-                for (i = 0; i < movie.length; i++) {
+                for (let i = 0; i < movie.length; i++) {
                     html += `<div>`
                     html += `<h2>${movie[i].title}</h2>`
                     html += `<h6>Rating: ${movie[i].rate} stars</h6>`
