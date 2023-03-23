@@ -26,7 +26,7 @@
                 let movies = document.getElementById('movie-cards');
                 let html = '';
 
-                for (let i = 0; i < movie.length; i++) {
+                for (i = 0; i < movie.length; i++) {
                     html += `<div>`
                     html += `<h2>${movie[i].title}</h2>`
                     html += `<h6>Rating: ${movie[i].rate} stars</h6>`
@@ -68,17 +68,17 @@
                         // $('#page-loading').toggle("hidden");
                         movies.innerHTML = html;
             $('#page-loading').toggle(2000);
+
     });
 
 
             $('#edit-Movies').click(function () {
                 let editPic = ($(this).val());
-                let titlePic1 = $(this).parent().children('h2').first().html()
-                let ratingPic1 = $(this).parent().children('h6').first().html()
+                let titlePic1 = $(this).parent().children('h2').first().html();
+                let ratingPic1 = $(this).parent().children('h6').first().html();
                 $(this).parent().children('#save-Movies').toggleClass('hidden')
-
-                $(this).parent().children('h2').first().html(`<input type='text' value='${title}' id="makeChange">`);
-                $(this).parent().children('h6').first().html(changeRating(rating));
+                $(this).parent().children('h2').first().html(`<input type='text' value='${titlePic1}' id="makeChange">`);
+                $(this).parent().children('h6').first().html(changeRating(ratingPic1));
 
                 //save btn
 
@@ -90,7 +90,6 @@
 
                 // change title
                 $('#makeChange').click(function (e) {
-                    let typing = e.key;
                     let inputBox = $(this).val();
                     let ratingPic3 = $('#selector').val();
                     changeMovies(editPic, inputBox, ratingPic3);
@@ -99,7 +98,6 @@
                 // change rating
 
                 $('.changeRate').click(function (e) {
-                    let typing = e.key;
                     let inputBox = $('#makeChange').val();
                     let ratingPic4 = $('#selector').val();
                     changeMovies(editPic, inputBox, ratingPic4);
@@ -137,52 +135,52 @@
 
     //change ratings
     function changeRating(rate) {
-        let html = '';
+        let movieHTML = '';
         if (rate === 1) {
-            html += `<select id="selector" class="changeRate">
+            movieHTML += `<select id="selector" class="changeRate">
                     <option selected value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>`
-            return html;
-        } else if (rating == 2) {
-            html += `<select id="selector" class="changeRate">
+            return movieHTML;
+        } else if (rating === 2) {
+            movieHTML += `<select id="selector" class="changeRate">
                     <option value="1">1</option>
                     <option selected value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>`
-            return html;
-        } else if (rating == 3) {
-            html += `<select id="selector" class="changeRate">
+            return movieHTML;
+        } else if (rating === 3) {
+            movieHTML += `<select id="selector" class="changeRate">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option selected value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>`
-            return html;
-        } else if (rating == 4) {
-            html += `<select id="selector" class="changeRate">
+            return movieHTML;
+        } else if (rating === 4) {
+            movieHTML += `<select id="selector" class="changeRate">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option selected value="4">4</option>
                     <option value="5">5</option>
                 </select>`
-            return html;
-        } else if (rating == 5) {
-            html += `<select id="selector" class="changeRate">
+            return movieHTML;
+        } else if (rating === 5) {
+            movieHTML += `<select id="selector" class="changeRate">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option selected value="5">5</option>
                 </select>`
-            return html;
+            return movieHTML;
         }
     }
 }
