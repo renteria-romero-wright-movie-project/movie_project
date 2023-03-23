@@ -149,8 +149,9 @@
 
     //editing movies
 
-    function changeMovies(chngFilm, title, rating) {
+    function changeMovies(chngFilm, title, rating) {//id parameter added here
         let changedFilm = {
+            id: chngFilm,//add in an 'id' property  [IF ID IS HERE DO NOT NEED IN URL]
             name: title,
             rate: rating
         };
