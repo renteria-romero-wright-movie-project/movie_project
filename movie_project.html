@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="movie_project.css">
 </head>
 <body class="bg-warning">
+
 <!-- Non-functional navbar with logo and "Company Name" -->
 
 <nav class="navbar bg-warning-subtle bg-body-tertiary">
@@ -23,11 +24,14 @@
     </div>
 </nav>
 <main>
-    <!-- Page loading alert -->
+    <!-- Page loading message -->
 
     <div class="w-100" id="page-loading">
         <img class="w-100" src="https://images.pexels.com/photos/8110768/pexels-photo-8110768.jpeg?auto=compress&cs=tinysrgb&w=800">
     </div>
+
+    <!-- Form to add new movies -->
+
     <div class="input-group m-3">
         <input type="text" id="newMovie" class="form-control" placeholder="Please enter title of movie you want to add">
         <input type="text" id="newMovieRate" class="form-control" placeholder="Please enter your rating of this movie">
@@ -35,6 +39,9 @@
         <button type="submit" id="newMovieBtn" class="btn btn-secondary">
             Submit
         </button>
+    </div>
+
+        <!-- target div/id for movie cards -->
     <div class="row" id="movie-cards"></div>
 </main>
 

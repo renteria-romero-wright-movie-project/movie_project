@@ -1,6 +1,5 @@
 (() => {
     "use strict";
-    // let loadMessage = $('#page-loading').toggleClass('hidden');
     let submitBtn = document.querySelector('#movie-choice');
     let submitNewMovie = document.querySelector('#newMovieBtn');
     let filterMovie = document.querySelector('#movie-cards');
@@ -9,9 +8,8 @@
     pageLoaded();
     console.log(submitNewMovie);
 
-    // function to add new movies
+    // new movie function
     function addMovies(name, rating, type) {
-        // addFilm.preventDefault();
         let filmObject = {
             title: name,
             rate: rating,
@@ -38,10 +36,8 @@
                     html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
                     html += `</div>`
                 }
-                // $('#page-loading').toggle("hidden");
                 movies.innerHTML = html;
             });
-        // addTitle.value = '';
     }
 
     submitNewMovie.addEventListener('click', function () {
@@ -51,7 +47,7 @@
         addMovies(addTitle, addRating, addGenre);
     });
 
-    //loading image
+    //loading message function
 
         function pageLoaded() {
             $(document).ready(function () {
@@ -60,7 +56,6 @@
                     .then(response => response.json())
                     .then(movie => {
                         let html = '';
-
                         for (let i = 0; i < movie.length; i++) {
                             html += `<div>`
                             html += `<h2>${movie[i].title}</h2>`
@@ -69,32 +64,11 @@
                             html += `<button name="Save" id="save-Movies" type="submit" value="${movie[i].id}">Save</button>`
                             html += `<button name="Edit" id="edit-Movies" type="submit" value="${movie[i].id}">Edit</button>`
                             html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
-                            html += `</div>`
                         }
                         // $('#page-loading').toggle("hidden");
                         movies.innerHTML = html;
             $('#page-loading').toggle(2000);
-
     });
-
-    // let movies = document.getElementById('movie-cards');
-    // fetch('https://longing-flossy-bed.glitch.me/movies')
-    //     .then(response => response.json())
-    //     .then(movie => {
-    //         let html = '';
-    //
-    //         for (let i = 0; i < movie.length; i++) {
-    //             html += `<div>`
-    //             html += `<h2>${movie[i].title}</h2>`
-    //             html += `<h6>Rating: ${movie[i].rate} stars</h6>`
-    //             html += `<h6>Genre: ${movie[i].genre}</h6>`
-    //             html += `<button name="Save" id="save-Movies" type="submit" value="${movie[i].id}">Save</button>`
-    //             html += `<button name="Edit" id="edit-Movies" type="submit" value="${movie[i].id}">Edit</button>`
-    //             html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
-    //             html += `</div>`
-    //         }
-    //         // $('#page-loading').toggle("hidden");
-    //         movies.innerHTML = html;
 
 
             $('#edit-Movies').click(function () {
@@ -132,20 +106,16 @@
                 });
             })
         })
-    // $('#delete-Movies').on(click, deleteMovies())
-
 
     //deleting movies
 
     function deleteMovies() {
-        fetch('https://longing-flossy-bed.glitch.me/movies/', {
+        fetch('https://longing-flossy-bed.glitch.me/movies/${movie[i].id}', {
             method: 'DELETE'
         }).then(() => fetch('https://longing-flossy-bed.glitch.me/movies'))
             .then(res => res.json())
-            .then(() => pageLoaded());
+            .then(() => deleteMovies());
     }
-
-
 
     //editing movies
 
@@ -217,27 +187,3 @@
     }
 }
 })();
-
-
-// window.onload = function () {
-//     alert('Please be patient while page is loading');
-// }
-// fetch('https://longing-flossy-bed.glitch.me/movies')
-//     .then(response => response.json()).then(movies => {
-//     movies.forEach(movie => {
-//         console.log(movie);
-
-
-// let listmovies = document.getElementById('listmovies');
-// fetch("https://longing-flossy-bed.glitch.me/movies").then(resp => resp.json())
-//     .then(data => {
-//         let html = '';
-//         for (var i = 0; i < data.length; i++)
-
-
-// var loadingSign = document.getElementsByTagName('body')
-// alert('Please be patient while the page loads...');
-// console.log(loadingSign)
-
-
-
