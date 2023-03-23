@@ -24,7 +24,23 @@
         })
             .then(() => fetch('https://longing-flossy-bed.glitch.me/movies'))
             .then(res => res.json())
-            .then(() => pageLoaded());
+            .then((movie) => {
+                let movies = document.getElementById('movie-cards');
+                let html = '';
+
+                for (let i = 0; i < movie.length; i++) {
+                    html += `<div>`
+                    html += `<h2>${movie[i].title}</h2>`
+                    html += `<h6>Rating: ${movie[i].rate} stars</h6>`
+                    html += `<h6>Genre: ${movie[i].genre}</h6>`
+                    html += `<button name="Save" id="save-Movies" type="submit" value="${movie[i].id}">Save</button>`
+                    html += `<button name="Edit" id="edit-Movies" type="submit" value="${movie[i].id}">Edit</button>`
+                    html += `<button name="Delete" id="delete-Movies" type="submit" value="${movie[i].id}">Delete</button>`
+                    html += `</div>`
+                }
+                // $('#page-loading').toggle("hidden");
+                movies.innerHTML = html;
+            });
         // addTitle.value = '';
     }
 
@@ -57,7 +73,7 @@
                         }
                         // $('#page-loading').toggle("hidden");
                         movies.innerHTML = html;
-            $('#page-loading').toggle("hidden");
+            $('#page-loading').toggle(2000);
 
     });
 
@@ -116,7 +132,7 @@
                 });
             })
         })
-    $('#delete-Movies').on(click, deleteMovies())
+    // $('#delete-Movies').on(click, deleteMovies())
 
 
     //deleting movies
@@ -129,7 +145,7 @@
             .then(() => pageLoaded());
     }
 
-    deleteMovies();
+
 
     //editing movies
 
