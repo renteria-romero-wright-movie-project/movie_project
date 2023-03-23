@@ -145,7 +145,7 @@
                     <option value="5">5</option>
                 </select>`
             return movieHTML;
-        } else if (rating === 2) {
+        } else if (rate === 2) {
             movieHTML += `<select id="selector" class="changeRate">
                     <option value="1">1</option>
                     <option selected value="2">2</option>
@@ -154,7 +154,7 @@
                     <option value="5">5</option>
                 </select>`
             return movieHTML;
-        } else if (rating === 3) {
+        } else if (rate === 3) {
             movieHTML += `<select id="selector" class="changeRate">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -163,7 +163,7 @@
                     <option value="5">5</option>
                 </select>`
             return movieHTML;
-        } else if (rating === 4) {
+        } else if (rate === 4) {
             movieHTML += `<select id="selector" class="changeRate">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -172,7 +172,7 @@
                     <option value="5">5</option>
                 </select>`
             return movieHTML;
-        } else if (rating === 5) {
+        } else if (rate === 5) {
             movieHTML += `<select id="selector" class="changeRate">
                     <option value="1">1</option>
                     <option value="2">2</option>
